@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Om Pai | Portfolio</title>
+  <!-- Segment 2: defer runs the script after the HTML is parsed -->
+  <script type="module" src="/src/main.ts"></script>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <header>
+    <h1>Hi, I'm Om!</h1>
+    <p>CS and Math student at Rutgers • Learning frontend development</p>
+    <!-- Segment 4: dark-mode toggle -->
+    <button id="themeToggle" type="button">Dark mode</button>
+  </header>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I'm learning how to build accessible, responsive websites with Rutgers Blueprint. This is my first portfolio page!</p>
+      <!-- Segment 2: greeting button -->
+      <button id="greetBtn" type="button">Say hello</button>
+      <p id="greetOutput" aria-live="polite"></p>
+    </section>
+    <section id="skills">
+      <h2>Skills I'm Learning</h2>
+      <div class="skills-container">
+        <div class="skill-card"><h3>HTML</h3><p>Structure and meaning</p></div>
+        <div class="skill-card"><h3>CSS</h3><p>Style and layout</p></div>
+        <div class="skill-card"><h3>JavaScript</h3><p>Interaction and behavior</p></div>
+        <div class="skill-card"><h3>React</h3><p>Reusable UI components</p></div>
+      </div>
+    </section>
+    <section id="services">
+      <h2>What I Want to Build</h2>
+      <div class="services-grid">
+        <div class="service-item"><h3>Portfolio Websites</h3><p>A place to share projects and interests.</p></div>
+        <div class="service-item"><h3>Landing Pages</h3><p>A clear introduction to a product or event.</p></div>
+        <div class="service-item"><h3>Responsive Layouts</h3><p>Pages that adapt to different screen sizes.</p></div>
+        <div class="service-item"><h3>Interactive Experiences</h3><p>Built with JavaScript this week!</p></div>
+      </div>
+    </section>
+    <section id="events">
+      <h2>Upcoming Events</h2>
+      <p id="eventStatus"></p>
+      <div id="eventsList" class="services-grid"></div>
+    </section>
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p id="form-note">Practice form: no message will be delivered yet.</p>
+      <form class="contact-form" aria-describedby="form-note">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your name" autocomplete="name" required>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Say hello!" required></textarea>
+        <button type="submit">Submit</button>
+        <!-- Segment 3: success/error message -->
+        <p id="formStatus" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+  <footer><p>Built at Rutgers Blueprint • Week 2</p></footer>
+</body>
+</html>
