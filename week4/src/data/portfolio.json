@@ -1,0 +1,16 @@
+{
+  "about": "I'm learning how to build accessible, responsive websites with Rutgers Blueprint. This is my first portfolio page!",
+  "skills": [
+    { "name": "HTML", "description": "Structure and meaning" },
+    { "name": "CSS", "description": "Style and layout" },
+    { "name": "JavaScript", "description": "Interaction and behavior" },
+    { "name": "TypeScript", "description": "Catching bugs before they run" },
+    { "name": "React", "description": "Reusable UI components" }
+  ],
+  "services": [
+    { "title": "Portfolio Websites", "description": "A place to share projects and interests." },
+    { "title": "Landing Pages", "description": "A clear introduction to a product or event." },
+    { "title": "Responsive Layouts", "description": "Pages that adapt to different screen sizes." },
+    { "title": "Interactive Experiences", "description": "Built with React components and state." }
+  ]
+}

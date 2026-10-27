@@ -1,0 +1,149 @@
+/* Segment 2: base styles and the box model */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #172554;
+  background-color: #f1f5f9;
+}
+nav {
+  background-color: #172554;
+  padding: 16px;
+  text-align: center;
+}
+nav a {
+  display: inline-block;
+  color: white;
+  margin: 4px 12px;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+header {
+  padding: 48px 20px;
+  text-align: center;
+  background-color: #dbeafe;
+}
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+section {
+  margin-bottom: 32px;
+}
+h2 {
+  margin-top: 0;
+}
+/* Segment 3: Flexbox */
+.skills-container {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.skill-card {
+  width: 200px;
+  max-width: 100%;
+  padding: 20px;
+  border: 2px solid #93c5fd;
+  border-radius: 8px;
+  background-color: white;
+  text-align: center;
+}
+/* Segment 4: Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.service-item {
+  padding: 20px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: white;
+}
+/* Segment 5: form styling */
+.contact-form {
+  max-width: 500px;
+}
+.contact-form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #64748b;
+  border-radius: 4px;
+  font: inherit;
+}
+.contact-form textarea {
+  resize: vertical;
+}
+button {
+  margin-top: 16px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #1d4ed8;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #1e40af;
+}
+footer {
+  padding: 16px;
+  text-align: center;
+  background-color: #dbeafe;
+}
+/* Segment 6: responsive layout */
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Week 2, Segment 3: form status messages */
+#formStatus.success {
+  color: #15803d;
+}
+#formStatus.error {
+  color: #b91c1c;
+}
+/* Week 2, Segment 4: dark mode */
+body.dark {
+  color: #e2e8f0;
+  background-color: #0f172a;
+}
+body.dark header,
+body.dark footer {
+  background-color: #1e293b;
+}
+body.dark nav {
+  background-color: #020617;
+}
+body.dark .skill-card,
+body.dark .service-item {
+  border-color: #334155;
+  background-color: #1e293b;
+}
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  border-color: #475569;
+  color: #e2e8f0;
+  background-color: #0f172a;
+}
+body.dark #formStatus.success {
+  color: #4ade80;
+}
+body.dark #formStatus.error {
+  color: #f87171;
+}

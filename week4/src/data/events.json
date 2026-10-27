@@ -1,0 +1,18 @@
+{
+  "clubName": "Blueprint",
+  "events": [
+    {
+      "title": "General Interest Meeting",
+      "date": "Thursday, Oct 22",
+      "location": "the Hatchery",
+      "description": "General interest"
+    },
+    {
+      "title": "Week 3",
+      "date": "Friday, Oct 23",
+      "location": "the Hatchery",
+      "description": "General interest",
+      "rsvpLink": "https://example.com/rsvp"
+    }
+  ]
+}
