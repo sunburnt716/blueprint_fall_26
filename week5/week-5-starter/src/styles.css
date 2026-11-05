@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; }
+.site { min-height: 100vh; background: var(--background); color: var(--text); }
+.light { --background: #f6f8fc; --text: #172339; --surface: white; --border: #b3bfd0; --accent: #1b4eae; }
+.dark { --background: #142033; --text: #edf3ff; --surface: #21314b; --border: #68809f; --accent: #a9c9ff; }
+nav { display: flex; align-items: center; gap: 20px; padding: 20px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+a { color: var(--accent); }
+nav button { margin-left: auto; }
+main { max-width: 850px; margin: auto; padding: 24px; }
+section { margin-bottom: 36px; }
+.recipes { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.recipe-card, pre { padding: 18px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+form { display: grid; gap: 10px; max-width: 520px; }
+input, textarea, button { font: inherit; padding: 10px; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 5px; }
+input, textarea { width: 100%; }
+textarea { min-height: 110px; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.message { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 420px) { nav { gap: 12px; } nav button { margin-left: 0; } main { padding: 18px; } }

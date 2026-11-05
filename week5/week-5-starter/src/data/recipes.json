@@ -1,0 +1,10 @@
+{
+  "recipes": [
+    { "id": 1, "title": "Tomato and Cheese Pasta", "description": "A simple pasta idea for a quick dinner.", "ingredients": ["tomato", "pasta", "cheese", "garlic"] },
+    { "id": 2, "title": "Spinach Omelette", "description": "A breakfast idea with vegetables and cheese.", "ingredients": ["egg", "spinach", "cheese"] },
+    { "id": 3, "title": "Chicken Rice Bowl", "description": "A rice bowl for lunch or dinner.", "ingredients": ["chicken", "rice", "onion", "garlic"] },
+    { "id": 4, "title": "Chickpea Salad", "description": "A fresh salad idea with chickpeas.", "ingredients": ["chickpea", "tomato", "cucumber", "lemon"] },
+    { "id": 5, "title": "Banana Oat Pancakes", "description": "A breakfast idea using banana and oats.", "ingredients": ["banana", "oats", "egg", "milk"] },
+    { "id": 6, "title": "Coconut Pineapple Rice", "description": "A rice dish with a tropical flavor combination.", "ingredients": ["rice", "coconut", "pineapple"] }
+  ]
+}
