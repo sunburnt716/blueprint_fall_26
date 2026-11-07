@@ -4,6 +4,7 @@ import type { Recipe } from '../types';
 type Props = { recipes: Recipe[]; ingredient: string };
 
 export default function RecipeList({ recipes, ingredient }: Props) {
+  // Match exact ingredient names after removing capitalization and extra spaces.
   const terms = ingredient.toLowerCase().split(',')
     .map(term => term.trim()).filter(Boolean);
 

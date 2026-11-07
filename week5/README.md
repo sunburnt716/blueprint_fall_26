@@ -1,89 +1,86 @@
-# Week 5 (11/5) — React Hooks and State Management
+# Week 5: Completed Recipe App
 
-**Leads:** Purva, Sophia, Om
-**Starts from:** `week-4/`
-**Ends with:** `week-5/` — portfolio fetches its data, has a controlled contact form, and a global theme
+Rutgers Blueprint - React Hooks and State Management  
+Leads: Purva, Sophia, Om
 
-> **What changed from last year:** Last year covered `useState` (likes counter) and `useEffect` (console log). This year adds **`useContext`**, a **real** `useEffect` (data fetching), **system design basics**, and the **final project introduction + group finalization**. Budget time accordingly.
+This is the completed solution, not the starter. It includes comments explaining
+key state, fetching, and context decisions.
 
-## Syllabus objectives
+## Run after cloning or downloading
 
-- [ ] React state and component lifecycle, in depth
-- [ ] Hooks: `useState`, `useEffect`, `useContext`
-- [ ] Build a dynamic React app
-- [ ] System design basics
-- [ ] Mini project using hooks
-- [ ] Introduce final project; finalize groups (ED guide)
+Use Node.js 24 (recommended) or Node.js 22.12+. Open the folder containing
+package.json, then run:
 
-## Live coding plan (~28 min)
+```bash
+npm ci
+npm run dev
+```
 
-### Segment 1 — Controlled contact form with `useState` (7 min)
+Open the Local URL printed by Vite. Keep the terminal running. No API key,
+backend, database, or environment variables are needed.
 
-Resolves last year's "forms are tricky in React, we'll learn them later" comment.
+If this folder is inside a larger course repository, change into week-5 first.
+With nvm installed, nvm install and nvm use read the included .nvmrc.
 
-- [ ] One state object: `useState<{ name: string; email: string; message: string }>`
-- [ ] `value` + `onChange` on each input; `onSubmit` with `preventDefault`
-- [ ] Type the handler: `(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)`
-- [ ] Show submitted values below the form, then reset state
-- **Checkpoint:** typing updates state live (log it or show it)
+## Completed features
 
-### Segment 2 — Fetching with `useEffect` (9 min)
+- Ingredient search filters and ranks recipe ideas as you type.
+- A controlled contact form uses a typed state object, previews the submission,
+  and clears the inputs. It does not send email.
+- One useEffect in App fetches public/recipes.json with loading/error/data states
+  and cleanup that ignores obsolete results.
+- ThemeContext shares a light/dark theme. Nav toggles it and a nested RecipeCard
+  reads it without forwarded theme props.
+- Recipe cards link to Google cooking-instruction searches.
+- LikesCounter is an optional stretch example; it is not mounted by default.
 
-Replaces week 4's static JSON import. Mirrors week 3's `fetch`, now the React way.
+Try tomato,pasta,cheese or chicken,rice. Search uses exact singular ingredient
+names; an empty query shows every sample recipe. These are local sample ideas,
+not live Spoonacular results or full cooking instructions.
 
-- [ ] Move `portfolio.json` back to `public/`
-- [ ] State: `data: PortfolioData | null`, `loading: boolean`, `error: string | null`
-- [ ] `useEffect(() => { ... }, [])` → explain the dependency array (empty = on mount)
-- [ ] Render loading / error / data states
-- [ ] Mention cleanup functions and why StrictMode runs effects twice in dev
-- **Checkpoint:** page shows "Loading..." then content
+## Files
 
-### Segment 3 — Theme with `useContext` (8 min)
+| File | Responsibility |
+| --- | --- |
+| src/main.tsx | React root and theme provider |
+| src/App.tsx | Ingredient state, catalog fetch, loading/error/data rendering |
+| src/types.ts | Recipe interfaces |
+| public/recipes.json | Bundled sample catalog |
+| src/ThemeContext.tsx | Shared theme state and toggle |
+| src/components/Nav.tsx | Navigation and theme toggle |
+| src/components/RecipeList.tsx | Matching, ranking, and list rendering |
+| src/components/RecipeCard.tsx | One recipe, instructions link, and theme consumer |
+| src/components/ContactForm.tsx | Controlled inputs, preview, and reset |
+| src/components/LikesCounter.tsx | Optional likes example |
+| src/styles.css | Layout and light/dark CSS variables |
 
-Rebuilds week 2's dark-mode toggle.
+## Build
 
-- [ ] `ThemeContext.tsx`: `createContext`, `ThemeProvider` holding `useState<"light" | "dark">`
-- [ ] Wrap `<App />` in `main.tsx`
-- [ ] Toggle button in `Nav`, and a component deep in the tree reads the theme, **no prop drilling**
-- [ ] Contrast: passing `theme` through 3 levels of props vs context
-- **Checkpoint:** toggle in the nav restyles the whole page
+```bash
+npm run build
+npm run preview
+```
 
-### Segment 4 _(stretch)_ — Likes counter
+Build checks TypeScript and bundles the app. Preview serves the built app locally.
 
-Last year's `useState` + `useEffect` demo. Use as a warm-up if the room needs it.
+## Learning notes
 
-## System design basics (slides + whiteboard, ~5 min, outside live code)
+The contact form's fields and submitted snapshot have separate state. The theme
+lives in ThemeProvider. Search results are derived from props in RecipeList, so
+there is no extra state or Effect to keep them synchronized. Fetching remains
+in one App Effect for Week 6's custom-Hook refactor.
 
-- [ ] Draw the portfolio's component tree and where each piece of state lives
-- [ ] "Lift state up" vs context vs fetching: when to use which
-- [ ] Frame it as prep for planning the final project
+Cleanup ignores obsolete results rather than canceling the HTTP request.
+StrictMode may run an extra setup/cleanup check in development. The interface
+describes the expected JSON but does not validate it at runtime. The catalog is
+a bundled file we control. Theme and form values reset on refresh.
 
-## Final project introduction
+## Troubleshooting
 
-- [ ] Present the final project brief (link: Final Project (Fall 2026) doc)
-- [ ] Finalize groups of 3–4
-- [ ] Groups sketch a component tree for their idea as homework
+- Run commands inside the folder containing package.json.
+- Use a supported Node version and run npm ci before npm run dev.
+- Open Vite's Local URL rather than double-clicking index.html.
+- On Windows, use Command Prompt or npm.cmd if PowerShell blocks npm.ps1.
+- To see Loading..., throttle the browser Network tab and reload with cache disabled.
 
-## Heads-up for week 6 leads
-
-The fetch logic in `App.tsx` gets extracted into a custom hook next week. Keep it in one `useEffect` so the refactor is clean.
-
-## Common pitfalls
-
-- Missing dependency array → infinite fetch loop
-- Mutating state (`form.name = ...`) instead of `setForm({ ...form, name })`
-- Using context without the Provider → `undefined`
-- Rendering `data.skills` before `data` loads → null check
-
-## Kahoot seeds
-
-- What does an empty dependency array `[]` mean?
-- Why never mutate state directly?
-- What problem does `useContext` solve?
-- What's a controlled input?
-
-## TODO for EDs
-
-- [ ] Finished code committed to `week-5/`
-- [ ] Hooks cheatsheet updated with `useContext`
-- [ ] Final project brief ready to present
+Commit source files and package-lock.json. Do not commit node_modules or dist.

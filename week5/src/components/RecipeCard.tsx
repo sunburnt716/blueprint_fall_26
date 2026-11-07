@@ -1,7 +1,11 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../ThemeContext';
 import type { Recipe } from '../types';
 
 export default function RecipeCard({ recipe }: { recipe: Recipe }) {
-  // TODO 3: Read ThemeContext here without receiving a theme prop.
+  const context = useContext(ThemeContext);
+  if (!context) throw new Error('RecipeCard needs ThemeProvider');
+
   const searchUrl = 'https://www.google.com/search?q=' +
     encodeURIComponent(recipe.title + ' recipe cooking instructions');
 
@@ -13,7 +17,7 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
       <a href={searchUrl} target="_blank" rel="noopener noreferrer">
         Cooking instructions ↗
       </a>
-      {/* TODO 3: Display the current context theme here. */}
+      <p><small>This card reads the {context.theme} theme from context.</small></p>
     </article>
   );
 }
